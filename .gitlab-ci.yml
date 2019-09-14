@@ -37,4 +37,4 @@ deploy:
     url: https://aula-devops-ci.herokuapp.com
   only:
     - master
-  when: manual
+#  when: manual
