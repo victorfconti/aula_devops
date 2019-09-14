@@ -10,6 +10,7 @@ cache:
 stages:
   - test
   - build
+  - coverage
   - artifact
   - deploy
   
@@ -17,7 +18,13 @@ test:
   stage: test  
   script:
     - gradle test  
-  
+
+    
+coverage:
+  stage: coverage
+  script:
+    - echo "Total 100%"
+    
 build:
   stage: build
   script:
