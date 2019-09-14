@@ -1,4 +1,4 @@
-image: gradle:5.6.2-jdk11
+image: gradle:5.6.2-jdk12
 
 stages:
   - test
@@ -15,3 +15,15 @@ build:
   stage: build
   script:
     - gradle build
+
+deploy:
+  stage: deploy
+  script:
+    - git remote add heroku https://victorfconti.$HEROKU_KEY@git.heroku.com/aula-devops-ci.git
+    - git push heroku master
+  environment:
+    name: producao
+    url: https://aula-devops-ci.herokuapp.com
+  only:
+    - master
+  when: manual
