@@ -10,7 +10,6 @@ cache:
 stages:
   - test
   - build
-  - coverage
   - artifact
   - deploy
   
@@ -21,7 +20,7 @@ test:
 
     
 coverage:
-  stage: coverage
+  stage: test
   script:
     - echo "Total 100%"
     
