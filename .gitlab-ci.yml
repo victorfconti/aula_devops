@@ -27,8 +27,8 @@ deploy:
   stage: deploy
   script:
     - git remote add heroku https://victorfconti:$HEROKU_KEY@git.heroku.com/aula-devops-ci.git
-    - git config user.email = GITLAB_USER_EMAIL 
-    - git config user.name = GITLAB_USER_LOGIN
+    - git config user.email = $GITLAB_USER_EMAIL 
+    - git config user.name = $GITLAB_USER_LOGIN
     - git push heroku --all
   environment:
     name: producao
