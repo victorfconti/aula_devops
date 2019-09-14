@@ -1,7 +1,9 @@
 image: gradle:5.6.2-jdk12
 
+
 variables:
   GRADLE_CACHE: plugins
+  MAVEN_OPTS: "-Dmaven.repo.local=plugins"
 
 cache:
   paths:
@@ -22,12 +24,13 @@ test:
 coverage:
   stage: test
   script:
+    - gradle $MAVEN_OPTS build
     - echo "Total 100%"
     
 build:
   stage: build
   script:
-    - gradle build
+    - gradle $MAVEN_OPTS build
 
 deploy:
   stage: deploy
@@ -43,4 +46,3 @@ deploy:
     url: https://aula-devops-ci.herokuapp.com
   only:
     - master
-#  when: manual
