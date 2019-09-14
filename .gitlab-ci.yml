@@ -25,6 +25,8 @@ build:
 
 deploy:
   stage: deploy
+  before_script:
+    - git checkout master
   script:
     - git remote add heroku https://victorfconti:$HEROKU_KEY@git.heroku.com/aula-devops-ci.git
     - git config user.email = $GITLAB_USER_EMAIL 
