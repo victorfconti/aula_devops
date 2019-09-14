@@ -29,7 +29,7 @@ deploy:
     - git remote add heroku https://victorfconti:$HEROKU_KEY@git.heroku.com/aula-devops-ci.git
     - git config user.email = $GITLAB_USER_EMAIL 
     - git config user.name = $GITLAB_USER_LOGIN
-    - git push heroku master
+    - git push -f heroku HEAD:master
   environment:
     name: producao
     url: https://aula-devops-ci.herokuapp.com
